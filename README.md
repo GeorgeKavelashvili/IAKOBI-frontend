@@ -33,38 +33,38 @@ Before you begin, ensure you have the following installed:
 
 ### 1. Clone the Repository
 
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/iakobi-chat.git
 cd iakobi-chat
-\`\`\`
+```
 
 ### 2. Install Dependencies
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 ### 3. Add Your Logo
 
 Place your `logos.png` file (672x242 px) in the `public/` directory:
 
-\`\`\`
+```
 public/
   └── logos.png
-\`\`\`
+```
 
 ### 4. Environment Configuration
 
 Create a `.env.local` file in the root directory:
 
-\`\`\`bash
+```bash
 # API Configuration
 NEXT_PUBLIC_API_URL=http://192.168.33.185:8000
 NEXT_PUBLIC_SOCKET_URL=http://192.168.33.185:8000
 
 # Optional: Analytics or other services
 # NEXT_PUBLIC_GA_ID=your-google-analytics-id
-\`\`\`
+```
 
 ### 5. Backend Setup
 
@@ -82,31 +82,31 @@ The backend should handle:
 
 ### Development Mode
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
 ### Production Build
 
-\`\`\`bash
+```bash
 # Build the application
 npm run build
 
 # Start the production server
 npm start
-\`\`\`
+```
 
 ### Linting
 
-\`\`\`bash
+```bash
 npm run lint
-\`\`\`
+```
 
 ## 📁 Project Structure
 
-\`\`\`
+```
 iakobi-chat/
 ├── public/
 │   ├── logos.png          # IAKOBI logo (672x242 px)
@@ -126,7 +126,7 @@ iakobi-chat/
 ├── tailwind.config.js    # Tailwind CSS configuration
 ├── tsconfig.json         # TypeScript configuration
 └── README.md
-\`\`\`
+```
 
 ## 🎨 Customization
 
@@ -151,7 +151,7 @@ The application uses a consistent orange theme. To modify colors, update the Tai
 
 Update the API URLs in the chat component if your backend runs on different ports:
 
-\`\`\`typescript
+```typescript
 // In src/app/chat/page.tsx
 socketRef.current = io('YOUR_BACKEND_URL')
 
@@ -159,7 +159,7 @@ socketRef.current = io('YOUR_BACKEND_URL')
 const response = await fetch('YOUR_BACKEND_URL/prompt', {
   // ... rest of the configuration
 })
-\`\`\`
+```
 
 ### WebSocket Events
 
@@ -171,7 +171,7 @@ The application listens for these WebSocket events:
 
 Expected `pipeline_update` structure:
 
-\`\`\`typescript
+```typescript
 {
   type: 'status' | 'queries' | 'error' | 'done',
   content: {
@@ -182,7 +182,7 @@ Expected `pipeline_update` structure:
     error?: string
   }
 }
-\`\`\`
+```
 
 ## 🚀 Deployment
 
@@ -224,7 +224,7 @@ The application can be deployed on any platform that supports Next.js:
 
 Send a message to the AI:
 
-\`\`\`typescript
+```typescript
 // Request
 {
   query: string
@@ -232,11 +232,11 @@ Send a message to the AI:
 
 // Response
 // Real-time updates via WebSocket pipeline_update events
-\`\`\`
+```
 
 ### WebSocket Events
 
-\`\`\`typescript
+```typescript
 // Connect to WebSocket
 const socket = io('http://your-backend-url')
 
@@ -244,7 +244,7 @@ const socket = io('http://your-backend-url')
 socket.on('pipeline_update', (data) => {
   // Handle AI processing updates
 })
-\`\`\`
+```
 
 ## 🐛 Troubleshooting
 
